@@ -12,8 +12,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import compose_example.composeapp.generated.resources.Res
-import compose_example.composeapp.generated.resources.compose_multiplatform
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 
@@ -32,7 +30,7 @@ fun App() {
             }
             AnimatedVisibility(showImage) {
                 Image(
-                    painterResource(Res.drawable.compose_multiplatform),
+                    painterResource("compose-multiplatform.xml"),
                     null
                 )
             }
