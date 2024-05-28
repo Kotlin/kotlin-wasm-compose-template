@@ -1,6 +1,7 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.compose.ExperimentalComposeLibrary
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
+import org.jetbrains.kotlin.gradle.dsl.KotlinVersion.Companion.fromVersion
 import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
@@ -11,6 +12,8 @@ plugins {
     alias(libs.plugins.jetbrainsCompose)
     kotlin("plugin.compose")
 }
+
+val language_version: String? = project.properties["language_version"] as String?
 
 kotlin {
     androidTarget {
@@ -51,6 +54,13 @@ kotlin {
             }
         }
         binaries.executable()
+        compilations.configureEach {
+            compileTaskProvider.configure {
+                language_version?.let {
+                    compilerOptions.languageVersion.set(fromVersion(it))
+                }
+            }
+        }
     }
 
     sourceSets {
