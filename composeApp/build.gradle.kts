@@ -2,6 +2,7 @@
 
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.compose.ExperimentalComposeLibrary
+import org.jetbrains.kotlin.gradle.dsl.KotlinVersion.Companion.fromVersion
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -10,6 +11,8 @@ plugins {
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.pluginCompose)
 }
+
+val language_version: String? = project.properties["language_version"] as String?
 
 kotlin {
     androidTarget {
@@ -35,6 +38,13 @@ kotlin {
         outputModuleName = "composeApp"
         browser()
         binaries.executable()
+        compilations.configureEach {
+            compileTaskProvider.configure {
+                language_version?.let {
+                    compilerOptions.languageVersion.set(fromVersion(it))
+                }
+            }
+        }
     }
 
     sourceSets {
