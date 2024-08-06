@@ -1,58 +1,95 @@
 
 [![Incubator](https://jb.gg/badges/incubator-plastic.svg)](https://github.com/JetBrains#jetbrains-on-github)
 
-# Compose Multiplatform for Web
+This example showcases a web application built with [Compose Multiplatform for web](#compose-multiplatform-for-web) and [Kotlin/Wasm](https://kotl.in/wasm).
 
-> **Note**
-> Web support is Experimental and may be changed at any time. Use it only for evaluation purposes.
-> We would appreciate your feedback on it in the public Slack channel [#compose-web](https://slack-chats.kotlinlang.org/c/compose-web).
-> If you face any issues, please report them on [GitHub](https://github.com/JetBrains/compose-multiplatform/issues).
+Check it out:
 
-You can experiment with sharing your mobile or desktop UIs with the web. Compose for Web is based on [Kotlin/Wasm](https://kotl.in/wasm),
-the newest target for Kotlin Multiplatform projects. It allows Kotlin developers to run their code in the browser with
-all the benefits that WebAssembly has to offer, such as good and predictable performance for your applications.
-
-# Compose for Web Example
- 
-A simple Compose Multiplatform App.
+[![Static Badge](https://img.shields.io/badge/online%20demo%20%F0%9F%9A%80-6b57ff?style=for-the-badge)](https://kotlin.github.io/kotlin-wasm-compose-template/).
 
 ![](screenshots/compose-example.png)
 
+## Compose Multiplatform for web
+
+> **Note:**
+> Web support is an [Alpha](https://kotlinlang.org/docs/components-stability.html) feature. It may be changed at any time.
+> You can use it in scenarios before production. We would appreciate your feedback on [GitHub](https://github.com/JetBrains/compose-multiplatform/issues).
+>
+> [Join the compose-web community](https://slack-chats.kotlinlang.org/c/compose-web).
+
+Compose Multiplatform for web enables sharing your mobile or desktop UIs on the web.
+
+Compose Multiplatform for web is based on [Kotlin/Wasm](https://kotl.in/wasm), the newest target for Kotlin Multiplatform projects.
+This enables running your code in the browser, leveraging WebAssembly's advantages like high and consistent application performance.
+
+Follow the instructions in the sections below to try out this application built with Compose Multiplatform for web and Kotlin/Wasm.
+
+## Set up the environment
+
+Before starting, ensure you have the necessary IDE and browser setup to run the application.
+
+### IDE
+
+We recommend using [IntelliJ IDEA 2023.1 or later](https://www.jetbrains.com/idea/) to work with the project.
+It supports Kotlin/Wasm out of the box.
+
+### Browser (for Kotlin/Wasm target)
+
+To run applications built with Kotlin/Wasm in a browser, you need a browser supporting the [Wasm Garbage Collection (GC) feature](https://github.com/WebAssembly/gc):
+
+**Chrome and Chromium-based**
+
+* **For version 119 or later:**
+
+  Works by default.
+
+**Firefox**
+
+* **For version 120 or later:**
+
+  Works by default.
+
+**Safari/WebKit**
+
+Wasm GC support is currently under
+[active development](https://bugs.webkit.org/show_bug.cgi?id=247394).
+
+> **Note:**
+> For more information about the browser versions, see the [Troubleshooting documentation](https://kotl.in/wasm_help/).
+
 ## Build and run
 
-Check out the repo, navigate to the project folder, and use the following commands:
+To build and run the application:
 
-### Run Web version via Gradle
+1. In IntelliJ IDEA, open the repository.
+2. Run the application by typing one of the following Gradle commands in the terminal:
 
-`./gradlew :composeApp:wasmJsRun`
+* **Web version:**
 
-### Run Desktop version via Gradle
+  `./gradlew :composeApp:wasmJsRun`
+  <br>&nbsp;<br>
 
-`./gradlew :composeApp:run`
+  Once the application starts, open the following URL in your browser:
 
-## Setup Environment
+  `http://localhost:8080`
 
-To run applications built with Kotlin/Wasm in a browser, you need a browser supporting [wasm garbage collection feature](https://github.com/WebAssembly/gc):
+  > **Note:**
+  > The port number can vary. If the port 8080 is unavailable, you can find the corresponding port number printed in the console
+  > after building the application.
+<br>&nbsp;<br>
 
-- For **Chrome** and **Chromium-based** browsers (Edge, Brave etc.), it **should just work** since version 119.
-- For **Firefox** 120 it **should just work**.
-- For **Firefox** 119:
-  1. Open `about:config` in the browser.
-  2. Enable **javascript.options.wasm_gc**.
-  3. Refresh the page.
+* **Desktop version:**
 
-For more information see https://kotl.in/wasm_help/.
+  `./gradlew :composeApp:run`
 
-## IDE
+## Feedback and questions
 
-We recommend using [IntelliJ IDEA 2023.1 or newer](https://www.jetbrains.com/idea/) to work with the project.
+Give it a try and share your feedback or questions in our [#compose-web](https://slack-chats.kotlinlang.org/c/compose-web) Slack channel.
+[Get a Slack invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
+You can also share your comments with [@bashorov](https://twitter.com/bashorov) on X (Twitter).
 
-# Feedback & Questions
-
-Give it a try, and share your feedback and ask questions in the Kotlin Slack [#compose-web](https://slack-chats.kotlinlang.org/c/compose-web) channel (if you’re not a member, [apply here](https://kotl.in/slack)) or on Twitter to [@bashorov](https://twitter.com/bashorov).
-
-# Learn more
+## Learn more
 
 * [Compose Multiplatform](https://github.com/JetBrains/compose-multiplatform/#compose-multiplatform)
 * [Kotlin/Wasm](https://kotl.in/wasm/)
-* [Other examples](../../../#examples)
+* [Other Kotlin/Wasm examples](https://github.com/Kotlin/kotlin-wasm-examples/tree/main)
