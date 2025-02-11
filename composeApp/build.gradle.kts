@@ -93,6 +93,8 @@ kotlin {
                     logger.info("[KUP] ${this@configure.path} : added -Xrender-internal-diagnostic-names")
                     freeCompilerArgs.add("-Wextra")
                     logger.info("[KUP] ${this@configure.path}: added -Wextra")
+                    freeCompilerArgs.add("-Xuse-fir-experimental-checkers")
+                    logger.info("[KUP] ${this@configure.path}: added -Xuse-fir-experimental-checkers")
                 }
             }
         }
