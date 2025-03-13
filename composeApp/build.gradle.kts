@@ -50,20 +50,20 @@ kotlin {
                 if (kotlinLanguageVersionOverride != null) {
                     compilerOptions {
                         languageVersion.set(kotlinLanguageVersionOverride)
-                        logger.info("[KUP] ${this@configure.path} : set LV to $kotlinLanguageVersionOverride")
+                        logger.info("<KUP> ${this@configure.path} : set LV to $kotlinLanguageVersionOverride")
                     }
                 }
                 if (kotlinApiVersionOverride != null) {
                     compilerOptions {
                         apiVersion.set(kotlinApiVersionOverride)
-                        logger.info("[KUP] ${this@configure.path} : set APIV to $kotlinApiVersionOverride")
+                        logger.info("<KUP> ${this@configure.path} : set APIV to $kotlinApiVersionOverride")
                     }
                 }
                 if (kotlinAdditionalCliOptions != null) {
                     compilerOptions {
                         freeCompilerArgs.addAll(kotlinAdditionalCliOptions)
                         logger.info(
-                            "[KUP] ${this@configure.path} : added ${
+                            "<KUP> ${this@configure.path} : added ${
                                 kotlinAdditionalCliOptions.joinToString(
                                     " "
                                 )
@@ -74,10 +74,10 @@ kotlin {
                 compilerOptions {
                     // output reported warnings even in the presence of reported errors
                     freeCompilerArgs.add("-Xreport-all-warnings")
-                    logger.info("[KUP] ${this@configure.path} : added -Xreport-all-warnings")
+                    logger.info("<KUP> ${this@configure.path} : added -Xreport-all-warnings")
                     // output kotlin.git-searchable names of reported diagnostics
                     freeCompilerArgs.add("-Xrender-internal-diagnostic-names")
-                    logger.info("[KUP] ${this@configure.path} : added -Xrender-internal-diagnostic-names")
+                    logger.info("<KUP> ${this@configure.path} : added -Xrender-internal-diagnostic-names")
                 }
             }
         }
