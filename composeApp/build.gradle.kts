@@ -22,11 +22,6 @@ val kotlinAdditionalCliOptions = providers.gradleProperty("kotlin_additional_cli
 
 kotlin {
     androidTarget {
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = "1.8"
-            }
-        }
     }
     
     jvm("desktop")
