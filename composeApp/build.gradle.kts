@@ -86,10 +86,6 @@ kotlin {
                     // output kotlin.git-searchable names of reported diagnostics
                     freeCompilerArgs.add("-Xrender-internal-diagnostic-names")
                     logger.info("<KUP> ${this@configure.path} : added -Xrender-internal-diagnostic-names")
-                    freeCompilerArgs.add("-Wextra")
-                    logger.info("<KUP> ${this@configure.path}: added -Wextra")
-                    freeCompilerArgs.add("-Xuse-fir-experimental-checkers")
-                    logger.info("<KUP> ${this@configure.path}: added -Xuse-fir-experimental-checkers")
                 }
             }
         }
