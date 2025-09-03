@@ -66,7 +66,7 @@ To build and run the application:
 
 * **Web version:**
 
-  `./gradlew :composeApp:wasmJsRun`
+  `./gradlew :composeApp:wasmJsBrowserProductionRun`
   <br>&nbsp;<br>
 
   Once the application starts, open the following URL in your browser:
