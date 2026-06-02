@@ -18,7 +18,7 @@ val kotlinApiVersionOverride = providers.gradleProperty("kotlin_api_version")
     .map(org.jetbrains.kotlin.gradle.dsl.KotlinVersion::fromVersion)
     .orNull
 val kotlinAdditionalCliOptions = providers.gradleProperty("kotlin_additional_cli_options")
-    .map { it.split(" ") }
+    .map { it.split(" ").filter { option -> option.isNotEmpty() } }
     .orNull
 
 kotlin {
