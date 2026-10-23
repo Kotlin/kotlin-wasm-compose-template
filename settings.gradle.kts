@@ -1,4 +1,6 @@
-rootProject.name = "compose-example"
+@file:Suppress("UnstableApiUsage")
+
+rootProject.name = "kotlin-wasm-compose-template"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
@@ -16,4 +18,7 @@ dependencyResolutionManagement {
     }
 }
 
-include(":composeApp")
+include(":androidApp")
+include(":desktopApp")
+include(":webApp")
+include(":shared")
