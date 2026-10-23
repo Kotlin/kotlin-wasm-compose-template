@@ -12,12 +12,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import compose_example.composeapp.generated.resources.Res
-import compose_example.composeapp.generated.resources.compose_multiplatform
-import org.jetbrains.compose.resources.ExperimentalResourceApi
+import compose_example.shared.generated.resources.Res
+import compose_example.shared.generated.resources.compose_multiplatform
 import org.jetbrains.compose.resources.painterResource
 
-@OptIn(ExperimentalResourceApi::class)
 @Composable
 fun App() {
     MaterialTheme {

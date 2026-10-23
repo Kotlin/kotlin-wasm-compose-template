@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 rootProject.name = "compose-example"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
@@ -16,4 +18,7 @@ dependencyResolutionManagement {
     }
 }
 
-include(":composeApp")
+include(":androidApp")
+include(":desktopApp")
+include(":webApp")
+include(":shared")

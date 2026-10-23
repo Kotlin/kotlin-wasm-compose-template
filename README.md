@@ -12,8 +12,8 @@ Check it out:
 ## Compose Multiplatform for web
 
 > **Note:**
-> Web support is an [Alpha](https://kotlinlang.org/docs/components-stability.html) feature. It may be changed at any time.
-> You can use it in scenarios before production. We would appreciate your feedback on [GitHub](https://github.com/JetBrains/compose-multiplatform/issues).
+> Web support is in [Beta](https://kotlinlang.org/docs/components-stability.html). You can use it in production, but some APIs may still change.
+> We would appreciate your feedback on [GitHub](https://github.com/JetBrains/compose-multiplatform/issues).
 >
 > [Join the compose-web community](https://slack-chats.kotlinlang.org/c/compose-web).
 
@@ -30,8 +30,10 @@ Before starting, ensure you have the necessary IDE and browser setup to run the 
 
 ### IDE
 
-We recommend using [IntelliJ IDEA 2023.1 or later](https://www.jetbrains.com/idea/) to work with the project.
-It supports Kotlin/Wasm out of the box.
+We recommend using the latest [IntelliJ IDEA](https://www.jetbrains.com/idea/) or [Android Studio](https://developer.android.com/studio)
+with the [Kotlin Multiplatform plugin](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform) to work with the project.
+
+To build and run the iOS application, you need a Mac with [Xcode](https://developer.apple.com/xcode/).
 
 ### Browser (for Kotlin/Wasm target)
 
@@ -51,8 +53,9 @@ To run applications built with Kotlin/Wasm in a browser, you need a browser supp
 
 **Safari/WebKit**
 
-Wasm GC support is currently under
-[active development](https://bugs.webkit.org/show_bug.cgi?id=247394).
+* **For version 18.2 or later:**
+
+  Works by default.
 
 > **Note:**
 > For more information about the browser versions, see the [Troubleshooting documentation](https://kotl.in/wasm_help/).
@@ -66,7 +69,7 @@ To build and run the application:
 
 * **Web version:**
 
-  `./gradlew :composeApp:wasmJsBrowserProductionRun`
+  `./gradlew :webApp:wasmJsBrowserProductionRun`
   <br>&nbsp;<br>
 
   Once the application starts, open the following URL in your browser:
@@ -80,7 +83,39 @@ To build and run the application:
 
 * **Desktop version:**
 
-  `./gradlew :composeApp:run`
+  `./gradlew :desktopApp:run`
+  <br>&nbsp;<br>
+
+* **Android version:**
+
+  `./gradlew :androidApp:assembleDebug`
+  <br>&nbsp;<br>
+
+  Then install the APK from `androidApp/build/outputs/apk/debug/` on a device or an emulator,
+  or use the `androidApp` run configuration in your IDE.
+  <br>&nbsp;<br>
+
+* **iOS version:**
+
+  Open the [/iosApp](./iosApp) directory in Xcode and run it from there, or use the `iosApp` run configuration in your IDE.
+
+> **Note:**
+> On Windows, use `.\gradlew.bat` instead of `./gradlew`.
+
+## Run tests
+
+The tests in [commonTest](./shared/src/commonTest/kotlin) run on every target:
+
+* **Web (in a headless browser), desktop (JVM), and Android (on the host JVM):**
+
+  `./gradlew :shared:wasmJsBrowserTest :shared:jvmTest :shared:testAndroidHostTest`
+  <br>&nbsp;<br>
+
+* **iOS (requires macOS):**
+
+  `./gradlew :shared:iosSimulatorArm64Test`
+
+To build all the applications and run all the tests available on your machine, use `./gradlew build`.
 
 ## Feedback and questions
 
@@ -90,6 +125,7 @@ You can also share your comments with [@bashorov](https://twitter.com/bashorov) 
 
 ## Learn more
 
+* [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)
 * [Compose Multiplatform](https://github.com/JetBrains/compose-multiplatform/#compose-multiplatform)
 * [Kotlin/Wasm](https://kotl.in/wasm/)
 * [Other Kotlin/Wasm examples](https://github.com/Kotlin/kotlin-wasm-examples/tree/main)
